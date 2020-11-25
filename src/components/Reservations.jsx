@@ -38,7 +38,7 @@ class Reservations extends React.Component {
             </Alert>
           ) : (
             <>
-              <h2>RESERVATIONS</h2>
+              <h2>{this.props.header ? this.props.header : "RESERVATIONS"}</h2>
               {this.state.loading && (
                 <div className="font-bold d-flex justify-content-center">
                   <span>Feching reservations</span>
