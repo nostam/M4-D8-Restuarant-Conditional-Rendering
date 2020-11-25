@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 const SingleDish = (props) =>
   props ? (
     <>
+      {props.match.params.stefano === "2"
+        ? props.favDish()
+        : props.notFavDish()}
       <Row>
         <Col md={8} className="ml-auto mr-auto">
           <Row>

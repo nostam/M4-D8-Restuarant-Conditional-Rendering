@@ -47,6 +47,9 @@ class App extends React.Component {
             exact
             render={(props) => (
               <Menu
+                favDish={() => {
+                  this.setState({ favDish: true });
+                }}
                 notFavDish={() => {
                   this.setState({ favDish: false });
                 }}
@@ -57,16 +60,7 @@ class App extends React.Component {
           <Route
             path="/reservation"
             exact
-            render={(props) => (
-              <Reservations
-                header="🍝 Waitlist"
-                {...props}
-                notFavDish={() => {
-                  this.setState({ favDish: false });
-                }}
-                {...props}
-              />
-            )}
+            render={(props) => <Reservations header="🍝 Waitlist" {...props} />}
           />
           <Route
             path="/details/:stefano"
