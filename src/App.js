@@ -11,9 +11,17 @@ import DishDetails from "./components/DishDetails";
 import Menu from "./components/Menu";
 
 class App extends React.Component {
+  constructor(state) {
+    super(state);
+    this.state = { rendering: true };
+  }
+  renderBegins = () => {
+    console.log("renders successfully", this.state.rendering);
+  };
   render() {
     return (
       <>
+        {this.renderBegins()}
         <Router>
           <NavBar title="Strivestaurant" />
           <Route

@@ -6,7 +6,7 @@ class NavBar extends React.Component {
   render() {
     // console.log(this.props)
     return (
-      <div>
+      <>
         <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
           <Link to="/">
             <Navbar.Brand>{this.props.title} - Strive For Food</Navbar.Brand>
@@ -40,7 +40,7 @@ class NavBar extends React.Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-      </div>
+      </>
     );
   }
 }
