@@ -4,6 +4,7 @@ import { Container, Row, Col, Carousel } from "react-bootstrap";
 
 class Home extends Component {
   componentDidMount = () => {
+    /*because path is root, have to set manually to hide on NavBar*/
     this.props.notFavDish();
   };
   render() {
