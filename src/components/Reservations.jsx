@@ -29,7 +29,7 @@ class Reservations extends React.Component {
     console.log("IN THE RENDER METHOD");
     return (
       <Container>
-        <div className="mb-5">
+        <div className="my-4">
           {this.state.errMessage ? (
             <Alert variant="danger">
               We encountered a problem with fetching reservation, please try

@@ -93,7 +93,7 @@ class ReservationForm extends React.Component {
             </div>
           </div>
         )}
-        <Form className="w-100 mb-5" onSubmit={this.submitReservation}>
+        <Form className="w-100 my-4" onSubmit={this.submitReservation}>
           <Row>
             <Col md={6}>
               <Form.Group>
