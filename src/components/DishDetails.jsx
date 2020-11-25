@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Card, Col, Container, Row } from "react-bootstrap";
+import { Badge, Card, Col, Container, Row, Spinner } from "react-bootstrap";
 import DishComments from "./DishComments";
 import allTheDishes from "../data/menu.json";
 
@@ -50,7 +50,19 @@ class DishDetails extends React.Component {
             <DishComments selectedDish={this.state.dish} />
           </div>
         )}
-        {!this.state.dish && <h1>LOADING</h1>}
+        {!this.state.dish && (
+          <Row className="d-flex align-items-center">
+            <h1>LOADING</h1>
+            <Spinner
+              animation="border"
+              role="status"
+              variant="white"
+              style={{ width: "3rem", height: "3rem" }}
+            >
+              <h3>🍝</h3>
+            </Spinner>
+          </Row>
+        )}
       </Container>
     );
   }
