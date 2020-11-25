@@ -3,6 +3,9 @@ import items from "../data/menu.json";
 import { Container, Row, Col, Carousel } from "react-bootstrap";
 
 class Home extends Component {
+  componentDidMount = () => {
+    this.props.notFavDish();
+  };
   render() {
     return (
       <Container>

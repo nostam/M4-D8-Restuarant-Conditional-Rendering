@@ -13,7 +13,7 @@ import Menu from "./components/Menu";
 class App extends React.Component {
   constructor(state) {
     super(state);
-    this.state = { rendering: true };
+    this.state = { rendering: true, favDish: false };
   }
   renderBegins = () => {
     console.log("renders successfully", this.state.rendering);
@@ -23,7 +23,7 @@ class App extends React.Component {
       <>
         {this.renderBegins()}
         <Router>
-          <NavBar title="Strivestaurant" />
+          <NavBar title="Strivestaurant" favDish={this.state.favDish} />
           <Route
             path="/"
             exact
@@ -32,15 +32,56 @@ class App extends React.Component {
             // )}
             render={(
               props // props are history, location, match
-            ) => <Home title="Stefano" {...props} />} // in this way you can pass your own props along with the router ones
+            ) => (
+              <Home
+                title="Stefano"
+                notFavDish={() => {
+                  this.setState({ favDish: false });
+                }}
+                {...props}
+              />
+            )} // in this way you can pass your own props along with the router ones
           />
-          <Route path="/menu" exact component={Menu} />
+          <Route
+            path="/menu"
+            exact
+            render={(props) => (
+              <Menu
+                notFavDish={() => {
+                  this.setState({ favDish: false });
+                }}
+                {...props}
+              />
+            )}
+          />
           <Route
             path="/reservation"
             exact
-            render={(props) => <Reservations header="🍝 Waitlist" {...props} />}
+            render={(props) => (
+              <Reservations
+                header="🍝 Waitlist"
+                {...props}
+                notFavDish={() => {
+                  this.setState({ favDish: false });
+                }}
+                {...props}
+              />
+            )}
           />
-          <Route path="/details/:stefano" component={DishDetails} />
+          <Route
+            path="/details/:stefano"
+            render={(props) => (
+              <DishDetails
+                favDish={() => {
+                  this.setState({ favDish: true });
+                }}
+                notFavDish={() => {
+                  this.setState({ favDish: false });
+                }}
+                {...props}
+              />
+            )}
+          />
         </Router>
       </>
     );

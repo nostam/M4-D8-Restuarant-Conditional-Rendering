@@ -13,11 +13,20 @@ class NavBar extends React.Component {
           </Link>
           {this.props.location.pathname === "/details/2" ? (
             <Link to="/details/2">
-              <div className="nav-link active text-white">My favorite 🍝!</div>
+              <div className="nav-link active text-white">My favorite 🍝!1</div>
             </Link>
           ) : (
             ""
           )}
+
+          {this.props.favDish && (
+            <Link className="nav-link active" to="/details/2">
+              My favorite 🍝!2
+            </Link>
+          )}
+          {/* <Nav>
+            <Link to="/">Home</Link>
+          </Nav> */}
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="ml-auto">
