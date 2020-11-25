@@ -13,9 +13,13 @@ class DishDetails extends React.Component {
     let correctDishToLoad = allTheDishes.find(
       (dish) => dish.id.toString() === dishIdFromTheSearchBar
     );
-    this.setState({
-      dish: correctDishToLoad,
-    });
+    setTimeout(
+      () =>
+        this.setState({
+          dish: correctDishToLoad,
+        }),
+      1000
+    );
   }
 
   render() {

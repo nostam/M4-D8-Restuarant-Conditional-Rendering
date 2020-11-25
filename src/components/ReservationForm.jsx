@@ -85,13 +85,15 @@ class ReservationForm extends React.Component {
         ) : (
           ""
         )}
-        {this.state.loading && (
+        {this.state.loading ? (
           <div className="d-flex justify-content-center my-5">
             Reserving your table, please wait
             <div className="ml-2">
               <Spinner animation="border" variant="success" />
             </div>
           </div>
+        ) : (
+          ""
         )}
         <Form className="w-100 my-4" onSubmit={this.submitReservation}>
           <Row>
